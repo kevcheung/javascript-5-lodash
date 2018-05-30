@@ -282,11 +282,11 @@ const myEmployees = [
   }
 ];
 
-const myEmployeesAddresses = 0; // use map to get addresses here.
+const myEmployeesAddresses = _.map(myEmployees, 'address'); // use map to get addresses here.
 
 // Now we want to use map to get an array of ages of the employees.
 
-const myEmployeesAges = 0; // use map to get ages here.
+const myEmployeesAges = _.map(myEmployees, 'age'); // use map to get ages here.
 
 // union
 //  Union lets us take 2 arrays, and create a new array that only has 1 entry for
@@ -326,7 +326,25 @@ const breeFriendsEmails = [
   "dave@gmail.com"
 ];
 
-const listToSendEmailsTo = 0; // Put lodash here to make list of the union of the two address.
+const listToSendEmailsTo = _.union([
+  "alton.brown@gmail.com",
+  "betty.white@gmail.com",
+  "ron.paul@gmail.com",
+  "mr.giggles@gmail.com",
+  "mrs.giggles@gmail.com",
+  "black.adder@gmail.com"
+], [
+  "red.power@ranger.com",
+  "pikachu@gmail.com",
+  "james@gmail.com",
+  "batman@gothan.gov",
+  "betty.white@gmail.com",
+  "mr.giggles@gmail.com",
+  "mrs.giggles@gmail.com",
+  "stacey@gmail.com",
+  "brent@gmail.com",
+  "dave@gmail.com"
+]); // Put lodash here to make list of the union of the two address.
 
 // intersection
 //  Intersection lets us take two arrays, and create a new array that only
@@ -339,7 +357,25 @@ const listToSendEmailsTo = 0; // Put lodash here to make list of the union of th
 // Bob and Bree have decided that instead of inviting everyone they know to their
 // party. They are instead only going to invite those people that they both know.
 
-const listOfSharedEmails = 0; // Use lodash to create the list that are in both lists
+const listOfSharedEmails = _.intersection([
+  "alton.brown@gmail.com",
+  "betty.white@gmail.com",
+  "ron.paul@gmail.com",
+  "mr.giggles@gmail.com",
+  "mrs.giggles@gmail.com",
+  "black.adder@gmail.com"
+], [
+  "red.power@ranger.com",
+  "pikachu@gmail.com",
+  "james@gmail.com",
+  "batman@gothan.gov",
+  "betty.white@gmail.com",
+  "mr.giggles@gmail.com",
+  "mrs.giggles@gmail.com",
+  "stacey@gmail.com",
+  "brent@gmail.com",
+  "dave@gmail.com"
+]); // Use lodash to create the list that are in both lists
 
 // groupBy
 //  Group By lets us take an array of objects, and group then into groups based
@@ -403,10 +439,72 @@ const purchases = [
   { month: "February", price: 23.65 }
 ];
 
-const purchasesByMonth = 0; // Use groupBy to group the purchases by the month that they were made.
+const purchasesByMonth = _.groupBy([
+  { month: "February", price: 37.85 },
+  { month: "January", price: 73.24 },
+  { month: "February", price: 61.41 },
+  { month: "April", price: 41.07 },
+  { month: "March", price: 34.5 },
+  { month: "April", price: 68.52 },
+  { month: "March", price: 44.53 },
+  { month: "April", price: 44.95 },
+  { month: "January", price: 72.86 },
+  { month: "February", price: 58.96 },
+  { month: "April", price: 88.62 },
+  { month: "April", price: 32.53 },
+  { month: "January", price: 61.02 },
+  { month: "April", price: 22.92 },
+  { month: "April", price: 79.4 },
+  { month: "April", price: 13.23 },
+  { month: "February", price: 26.31 },
+  { month: "February", price: 74.3 },
+  { month: "March", price: 28.76 },
+  { month: "March", price: 85.51 },
+  { month: "March", price: 75.88 },
+  { month: "January", price: 22.83 },
+  { month: "January", price: 44.39 },
+  { month: "February", price: 22.04 },
+  { month: "April", price: 56.89 },
+  { month: "February", price: 86.19 },
+  { month: "April", price: 87.99 },
+  { month: "January", price: 14.25 },
+  { month: "March", price: 60.8 },
+  { month: "February", price: 23.65 }
+], 'month'); // Use groupBy to group the purchases by the month that they were made.
 
 // Bonus Points
-const totalByMonth = 0; // Use the grouped purchasesByMonth and reduce to create a totalByMonth object.
+// const totalByMonth = _.reduce(_.groupBy([
+//   { month: "February", price: 37.85 },
+//   { month: "January", price: 73.24 },
+//   { month: "February", price: 61.41 },
+//   { month: "April", price: 41.07 },
+//   { month: "March", price: 34.5 },
+//   { month: "April", price: 68.52 },
+//   { month: "March", price: 44.53 },
+//   { month: "April", price: 44.95 },
+//   { month: "January", price: 72.86 },
+//   { month: "February", price: 58.96 },
+//   { month: "April", price: 88.62 },
+//   { month: "April", price: 32.53 },
+//   { month: "January", price: 61.02 },
+//   { month: "April", price: 22.92 },
+//   { month: "April", price: 79.4 },
+//   { month: "April", price: 13.23 },
+//   { month: "February", price: 26.31 },
+//   { month: "February", price: 74.3 },
+//   { month: "March", price: 28.76 },
+//   { month: "March", price: 85.51 },
+//   { month: "March", price: 75.88 },
+//   { month: "January", price: 22.83 },
+//   { month: "January", price: 44.39 },
+//   { month: "February", price: 22.04 },
+//   { month: "April", price: 56.89 },
+//   { month: "February", price: 86.19 },
+//   { month: "April", price: 87.99 },
+//   { month: "January", price: 14.25 },
+//   { month: "March", price: 60.8 },
+//   { month: "February", price: 23.65 }
+// ], 'month'), function('month', 'price'){}); // Use the grouped purchasesByMonth and reduce to create a totalByMonth object.
 
 // memoize
 //  Memoize lets us take a function that takes a lot of time to run, and cache (or memoize)
